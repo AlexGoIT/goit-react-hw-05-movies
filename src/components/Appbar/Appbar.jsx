@@ -6,7 +6,7 @@ const Appbar = () => {
   return (
     <AppBar position="static">
       <Container
-        maxWidth="lg"
+        maxWidth="md"
         sx={{ height: '50px', display: 'flex', alignItems: 'center' }}
       >
         Home Movies
