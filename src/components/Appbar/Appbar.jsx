@@ -1,18 +1,16 @@
 import AppBar from '@mui/material/AppBar';
+import { NavLink } from 'react-router-dom';
 import { Container } from '@mui/material';
-import { MenuWrapper } from './Appbar.styled';
 
-const Appbar = () => {
+import { styledContainer } from './Appbar.styled';
+
+export default function Appbar() {
   return (
-    <AppBar position="static">
-      <Container
-        maxWidth="md"
-        sx={{ height: '50px', display: 'flex', alignItems: 'center' }}
-      >
-        Home Movies
+    <AppBar position="sticky">
+      <Container sx={styledContainer}>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/movies">Movies</NavLink>
       </Container>
     </AppBar>
   );
-};
-
-export default Appbar;
+}

@@ -9,12 +9,12 @@ const instance = axios.create({
   },
 });
 
-export async function getMovie(path, page) {
+export async function getMovie(path, page = 1) {
   const params = {
     page: page,
   };
 
   const res = await instance.get(path, params);
 
-  return res.data;
+  return await res.data;
 }
