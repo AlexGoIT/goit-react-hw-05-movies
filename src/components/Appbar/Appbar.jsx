@@ -1,5 +1,4 @@
 import AppBar from '@mui/material/AppBar';
-// import { NavLink } from 'react-router-dom';
 import { Container } from '@mui/material';
 
 import { styledContainer, StyledNavLink } from './Appbar.styled';
