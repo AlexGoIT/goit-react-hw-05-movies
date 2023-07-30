@@ -10,7 +10,6 @@ export const styledContainer = {
 
 export const StyledNavLink = styled(NavLink)`
   padding: 6px;
-  /* font-size: 16px; */
   font-weight: bold;
   background-color: #2196f3;
   border-radius: 6px;
