@@ -1,14 +1,17 @@
-// import { useState } from 'react';
-// import Loader from 'components/Loader';
+import Loader from 'components/Loader';
 import TopMovieList from 'components/MovieList';
+import { useFetchMovie } from 'hooks/useFetchMovie';
 
 export default function App() {
-  // const [open, setOpen] = useState(false);
+  const [movies, open, error] = useFetchMovie('/trending/all/day');
+  const isNotEmptyList = movies && movies.results.length > 0;
 
   return (
     <>
-      <TopMovieList />
-      {/* <Loader open={open} /> */}
+      {!open && !error && isNotEmptyList && (
+        <TopMovieList movies={movies.results} />
+      )}
+      <Loader open={open} />
     </>
   );
 }
