@@ -7,7 +7,7 @@ export const List = styled.ul`
   margin-top: 16px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 10px;
+  grid-gap: 32px 16px;
 
   @media (min-width: 475px) {
     max-width: 600px;
