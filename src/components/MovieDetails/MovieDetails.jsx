@@ -1,5 +1,5 @@
-import { Outlet, useParams } from 'react-router-dom';
-import { useFetchMovie } from 'hooks/useFetchMovie';
+import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
+import { useRef } from 'react';
 import { Box, Container } from '@mui/material';
 import Loader from 'components/Loader';
 import {
@@ -14,8 +14,12 @@ import {
   MovieGenre,
   StyledLink,
 } from './MovieDetails.styled';
+import { useFetchMovie } from 'hooks/useFetchMovie';
 
 export default function MoviesDetails() {
+  const location = useLocation();
+  const backLinkLocation = useRef(location.state?.from || '/');
+
   const { movieId } = useParams();
   const [movie, open, error] = useFetchMovie(`/movie/${movieId}`);
   const imgSrc = movie?.poster_path
@@ -31,6 +35,7 @@ export default function MoviesDetails() {
     <>
       {!error && (
         <Container sx={{ pt: 2, pb: 2 }}>
+          <Link to={backLinkLocation.current}>Go Back</Link>
           <Box sx={{ display: 'flex' }}>
             <Thumb>
               {imgSrc ? (
