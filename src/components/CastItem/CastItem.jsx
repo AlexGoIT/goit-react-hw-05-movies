@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import {
   Item,
   Thumb,
@@ -33,6 +32,6 @@ CastItem.propTypes = {
   item: PropTypes.shape({
     character: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    profile_path: PropTypes.string.isRequired,
+    profile_path: PropTypes.string,
   }).isRequired,
 };
