@@ -19,7 +19,7 @@ export default function MoviesDetails() {
   const [movie, open, error] = useFetchMovie(`/movie/${movieId}`);
   const imgSrc = movie?.poster_path
     ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
-    : null;
+    : '';
   const voteAverage = Math.floor(movie?.vote_average * 10);
 
   return (
