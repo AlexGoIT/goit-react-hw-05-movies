@@ -1,5 +1,5 @@
 import Home from 'pages/Home';
-import Movies from 'pages/Movies/Movies';
+import Movies from 'pages/Movies';
 import { Routes, Route } from 'react-router-dom';
 import CastList from './CastList';
 import Layout from './Layout';

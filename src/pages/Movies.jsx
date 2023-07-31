@@ -4,8 +4,8 @@ import { Container } from '@mui/system';
 export default function Movies() {
   return (
     <>
-      <Container>
-        <h1>Movies</h1>
+      <Container sx={{ pt: 2, pb: 2 }}>
+        <h2>Movies</h2>
         {/* <SearchForm /> */}
       </Container>
     </>
