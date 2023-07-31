@@ -14,7 +14,10 @@ export async function getMovie(path, page = 1) {
     page: page,
   };
 
-  const res = await instance.get(path, params);
-
-  return await res.data;
+  try {
+    const res = await instance.get(path, params);
+    return res.data;
+  } catch (err) {
+    console.log(err);
+  }
 }

@@ -23,6 +23,10 @@ export default function MoviesDetails() {
     : '';
   const voteAverage = Math.floor(movie?.vote_average * 10);
 
+  if (error) {
+    return <div>{error}</div>;
+  }
+
   return (
     <>
       {!error && (

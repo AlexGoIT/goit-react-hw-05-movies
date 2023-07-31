@@ -4,7 +4,7 @@ import { List } from './MovieList.styled';
 
 const MovieList = ({ movies }) => {
   return (
-    <Container>
+    <Container sx={{ pt: 2, pb: 2 }}>
       <Typography variant="h3" component="h2" sx={{ mt: 2, mb: 2 }}>
         Trending today
       </Typography>

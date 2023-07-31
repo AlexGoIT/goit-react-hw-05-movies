@@ -13,19 +13,19 @@ export default function Reviews() {
     return;
   }
 
-  const isNotEmptyReviews = reviews?.results.lenght !== 0;
-
-  console.log(isNotEmptyReviews, reviews?.results);
-  if (isNotEmptyReviews) {
-  }
+  const isNotEmptyReviews = reviews?.results.lenght === 0;
 
   return (
     <>
-      <List>
-        {reviews?.results.map(review => (
-          <ReviewItem key={review.id} review={review}></ReviewItem>
-        ))}
-      </List>
+      {isNotEmptyReviews ? (
+        <List>
+          {reviews?.results.map(review => (
+            <ReviewItem key={review.id} review={review}></ReviewItem>
+          ))}
+        </List>
+      ) : (
+        <div>Reviews not found</div>
+      )}
       <Loader open={open} />
     </>
   );

@@ -1,4 +1,4 @@
-import { Item, StyledLink, Poster, Title } from './MovieItem.styled';
+import { Item, StyledLink, Thumb, Poster, Title } from './MovieItem.styled';
 
 const MovieItem = ({ movie }) => {
   const { poster_path } = movie;
@@ -9,7 +9,13 @@ const MovieItem = ({ movie }) => {
   return (
     <Item>
       <StyledLink to={`/movies/${movie.id}`}>
-        <Poster src={imgSrc} alt={movie?.title ?? movie?.name} loading="lazy" />
+        <Thumb>
+          <Poster
+            src={imgSrc}
+            alt={movie?.title ?? movie?.name}
+            loading="lazy"
+          />
+        </Thumb>
         <Title>{movie?.title ?? movie?.name}</Title>
       </StyledLink>
     </Item>

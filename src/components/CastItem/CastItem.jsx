@@ -17,7 +17,7 @@ export default function CastItem({ item }) {
       {imgSrc && (
         <Item>
           <Thumb>
-            <ProfileImage src={imgSrc} alt={name} />
+            <ProfileImage src={imgSrc} alt={name} loading="lazy" />
           </Thumb>
           <ActorName>{name}</ActorName>
           <Character>{character}</Character>

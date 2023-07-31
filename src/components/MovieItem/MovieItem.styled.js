@@ -2,10 +2,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const Item = styled.li`
-  min-width: calc(100% / 4 - 20px);
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 1px 2px 5px 0px rgba(34, 60, 80, 0.2);
 `;
 
 export const StyledLink = styled(Link)`
@@ -14,6 +15,12 @@ export const StyledLink = styled(Link)`
   &:hover img {
     transform: scale(1.03);
   }
+`;
+
+export const Thumb = styled.div`
+  width: 100%;
+  height: auto;
+  overflow: hidden;
 `;
 
 export const Poster = styled.img`
