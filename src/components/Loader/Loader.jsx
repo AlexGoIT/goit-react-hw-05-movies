@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -13,3 +14,7 @@ const Loader = ({ open }) => {
 };
 
 export default Loader;
+
+Loader.propTypes = {
+  open: PropTypes.bool.isRequired,
+};

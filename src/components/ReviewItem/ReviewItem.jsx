@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Box } from '@mui/system';
 import {
   Item,
@@ -7,7 +8,7 @@ import {
   ReviewContent,
 } from './ReviewItem.style';
 
-export default function ReviewItem({ review }) {
+const ReviewItem = ({ review }) => {
   const {
     author_details: { avatar_path, username },
     author,
@@ -33,4 +34,15 @@ export default function ReviewItem({ review }) {
       <ReviewContent>{content}</ReviewContent>
     </Item>
   );
-}
+};
+
+export default ReviewItem;
+
+ReviewItem.propTypes = {
+  review: PropTypes.shape({
+    author_details: PropTypes.shape({
+      avatar_path: PropTypes.string.isRequired,
+      username: PropTypes.string.isRequired,
+    }).isRequired,
+  }),
+};
