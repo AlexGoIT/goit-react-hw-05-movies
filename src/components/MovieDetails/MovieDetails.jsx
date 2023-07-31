@@ -1,8 +1,9 @@
 import { Outlet, useParams } from 'react-router-dom';
 import { useFetchMovie } from 'hooks/useFetchMovie';
-import { Box, Container, List } from '@mui/material';
+import { Box, Container } from '@mui/material';
 import Loader from 'components/Loader';
 import {
+  List,
   Thumb,
   Poster,
   NoPoster,
@@ -25,7 +26,7 @@ export default function MoviesDetails() {
   return (
     <>
       {!error && (
-        <Container sx={{ pt: 2 }}>
+        <Container sx={{ pt: 2, pb: 2 }}>
           <Box sx={{ display: 'flex' }}>
             <Thumb>
               {imgSrc ? (
@@ -54,7 +55,7 @@ export default function MoviesDetails() {
             </Box>
           </Box>
 
-          <List spacing={2} sx={{ display: 'flex', gap: 2 }}>
+          <List sx={{ pt: 4, pb: 4, display: 'flex', gap: 2 }}>
             <li>
               <StyledLink to="cast">Cast</StyledLink>
             </li>

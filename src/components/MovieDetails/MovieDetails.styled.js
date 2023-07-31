@@ -2,6 +2,15 @@ import { NavLink } from 'react-router-dom';
 import { BsFilm } from 'react-icons/bs';
 import styled from 'styled-components';
 
+export const List = styled.ul`
+  padding: 8px 0;
+  margin: 8px 0;
+  display: flex;
+  gap: 16px;
+  border-top: 2px solid #c2c2c2;
+  border-bottom: 2px solid #c2c2c2;
+`;
+
 export const Thumb = styled.div`
   min-width: 260px;
   min-height: 360px;

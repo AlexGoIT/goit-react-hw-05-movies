@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import CastList from './CastList';
 import Layout from './Layout';
 import MovieDetails from './MovieDetails';
-import Reviews from './Reviews';
+import ReviewList from './ReviewList';
 
 document.title = 'HW-5 Movies';
 
@@ -16,7 +16,7 @@ export default function App() {
         <Route path="movies" element={<Movies />} />
         <Route path="movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<CastList />} />
-          <Route path="reviews" element={<Reviews />} />
+          <Route path="reviews" element={<ReviewList />} />
         </Route>
       </Route>
     </Routes>
