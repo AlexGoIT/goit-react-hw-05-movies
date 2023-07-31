@@ -5,6 +5,8 @@ export const Item = styled.li`
   flex-direction: column;
   align-items: center;
   box-shadow: 1px 2px 5px 0px rgba(34, 60, 80, 0.2);
+  overflow: hidden;
+  border-radius: 4px;
 `;
 
 export const Thumb = styled.div`

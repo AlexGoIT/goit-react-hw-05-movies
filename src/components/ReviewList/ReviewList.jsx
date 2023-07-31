@@ -13,7 +13,7 @@ export default function Reviews() {
     return;
   }
 
-  const isNotEmptyReviews = reviews?.results.lenght === 0;
+  const isNotEmptyReviews = reviews?.results.length !== 0;
 
   return (
     <>

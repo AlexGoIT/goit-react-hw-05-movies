@@ -15,6 +15,8 @@ export const Thumb = styled.div`
   min-width: 260px;
   min-height: 360px;
   margin-right: 20px;
+  border-radius: 4px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;

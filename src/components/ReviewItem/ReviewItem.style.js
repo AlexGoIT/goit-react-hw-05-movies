@@ -1,15 +1,19 @@
 import styled from 'styled-components';
 
 export const Item = styled.li`
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  border-radius: 4px;
+  box-shadow: 1px 2px 5px 0px rgba(34, 60, 80, 0.2);
 `;
 
 export const AuthorWrapper = styled.div`
   display: flex;
+  align-items: center;
 `;
 
-export const AutorNameBox = styled.div``;
+export const AuthorNameBox = styled.div``;
 
 export const Thumb = styled.div`
   width: 45px;
@@ -32,5 +36,6 @@ export const AvatarImage = styled.img`
 `;
 
 export const ReviewContent = styled.p`
+  padding: 10px 0;
   text-align: justify;
 `;
