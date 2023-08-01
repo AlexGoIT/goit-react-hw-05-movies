@@ -23,15 +23,15 @@ export default function Movies() {
     setLoading(true);
     const fetchMovies = async () => {
       try {
-        const movies = await getMovie(`/search/movie?query=${query}`);
+        const res = await getMovie(`/search/movie?query=${query}`);
 
-        if (movies.results.length === 0) {
+        if (res.results.length === 0) {
           Notify.failure('Sorry, no movies found');
 
           setMovies(null);
         }
 
-        setMovies(movies.results);
+        setMovies(res.results);
       } catch (err) {
         Notify.failure(`Error: ${err.message}`);
       } finally {
