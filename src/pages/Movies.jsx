@@ -50,8 +50,6 @@ export default function Movies() {
 
     if (!query) {
       Notify.warning('Enter the name of the movie, for a correct search!');
-      // setSearchParams({});
-      // setMovies([]);
       return;
     }
 
