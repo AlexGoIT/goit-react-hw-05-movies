@@ -43,8 +43,14 @@ export const MovieTitle = styled.h2`
   font-weight: bold;
 `;
 
+export const MovieScoreWrapper = styled.div`
+  padding: 16px, 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+`;
+
 export const MovieScore = styled.p`
-  /* margin-block: 16px; */
   font-size: 18px;
 `;
 

@@ -16,6 +16,7 @@ import {
   MovieReview,
   MovieGenre,
   StyledLink,
+  MovieScoreWrapper,
 } from './MovieDetails.styled';
 
 export default function MoviesDetails() {
@@ -24,8 +25,9 @@ export default function MoviesDetails() {
 
   const { movieId } = useParams();
   const [movie, open, error] = useFetchMovie(`/movie/${movieId}`);
+
   const imgSrc = movie?.poster_path
-    ? `https://image.tmdb.org/t/p/w342${movie.poster_path}`
+    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     : '';
   const voteAverage = Math.floor(movie?.vote_average * 10);
 
@@ -52,15 +54,7 @@ export default function MoviesDetails() {
             </Thumb>
             <Box>
               <MovieTitle>{movie?.title ?? movie?.name}</MovieTitle>
-              <Box
-                sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  pt: 2,
-                  pb: 2,
-                  gap: 1,
-                }}
-              >
+              <MovieScoreWrapper>
                 <MovieScore>User score:{` ${voteAverage} `}</MovieScore>
                 <Rating
                   name="half-rating-read"
@@ -69,7 +63,7 @@ export default function MoviesDetails() {
                   size="small"
                   readOnly
                 />
-              </Box>
+              </MovieScoreWrapper>
               <MovieSubTitle>Review</MovieSubTitle>
               <MovieReview>
                 {movie?.overview ? movie?.overview : 'No overview'}

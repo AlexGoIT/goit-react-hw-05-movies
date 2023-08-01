@@ -1,3 +1,4 @@
+import { NoPoster } from 'components/MovieDetails/MovieDetails.styled';
 import PropTypes from 'prop-types';
 import { useLocation } from 'react-router-dom';
 import { Item, StyledLink, Thumb, Poster, Title } from './MovieItem.styled';
@@ -15,7 +16,11 @@ const MovieItem = ({ movie }) => {
     <Item>
       <StyledLink to={`/movies/${movie.id}`} state={{ from: location }}>
         <Thumb>
-          <Poster src={imgSrc} alt={title} loading="lazy" />
+          {imgSrc ? (
+            <Poster src={imgSrc} alt={title} loading="lazy" />
+          ) : (
+            <NoPoster />
+          )}
         </Thumb>
         <Title>{title}</Title>
       </StyledLink>
@@ -27,7 +32,7 @@ export default MovieItem;
 
 MovieItem.propTypes = {
   movie: PropTypes.shape({
-    poster_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string,
     id: PropTypes.number.isRequired,
     title: PropTypes.string,
     name: PropTypes.string,
