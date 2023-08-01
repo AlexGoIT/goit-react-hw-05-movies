@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { BsFilm } from 'react-icons/bs';
 import styled from 'styled-components';
 
@@ -44,13 +44,14 @@ export const MovieTitle = styled.h2`
 `;
 
 export const MovieScoreWrapper = styled.div`
-  padding: 16px, 0;
+  padding: 16px 0;
   display: flex;
   align-items: center;
   gap: 4px;
 `;
 
 export const MovieScore = styled.p`
+  margin-right: 4px;
   font-size: 18px;
 `;
 
@@ -67,7 +68,24 @@ export const MovieReview = styled.p`
 
 export const MovieGenre = styled.p``;
 
-export const StyledLink = styled(NavLink)`
+export const StyledLink = styled(Link)`
+  max-width: 100px;
+  padding: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 1px 2px 5px 0px rgba(34, 60, 80, 0.2);
+`;
+
+export const StyledNavLink = styled(NavLink)`
   font-size: 18px;
   font-weight: 500;
   color: blue;

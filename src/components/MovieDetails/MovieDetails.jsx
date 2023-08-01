@@ -1,4 +1,5 @@
-import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
+import { Outlet, useParams, useLocation } from 'react-router-dom';
+import { BiLeftArrowAlt } from 'react-icons/bi';
 import { useRef } from 'react';
 import { Box, Container } from '@mui/material';
 import Rating from '@mui/material/Rating';
@@ -16,6 +17,7 @@ import {
   MovieReview,
   MovieGenre,
   StyledLink,
+  StyledNavLink,
   MovieScoreWrapper,
 } from './MovieDetails.styled';
 
@@ -29,7 +31,7 @@ export default function MoviesDetails() {
   const imgSrc = movie?.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
     : '';
-  const voteAverage = Math.floor(movie?.vote_average * 10);
+  const voteAverage = Math.floor(movie?.vote_average) / 2;
 
   if (error) {
     return <div>{error}</div>;
@@ -39,7 +41,10 @@ export default function MoviesDetails() {
     <>
       {!error && (
         <Container sx={{ pt: 2, pb: 2 }}>
-          <Link to={backLinkLocation.current}>Go Back</Link>
+          <StyledLink to={backLinkLocation.current}>
+            <BiLeftArrowAlt size={20} />
+            Go Back
+          </StyledLink>
           <Box sx={{ display: 'flex' }}>
             <Thumb>
               {imgSrc ? (
@@ -55,11 +60,11 @@ export default function MoviesDetails() {
             <Box>
               <MovieTitle>{movie?.title ?? movie?.name}</MovieTitle>
               <MovieScoreWrapper>
-                <MovieScore>User score:{` ${voteAverage} `}</MovieScore>
+                <MovieScore>User score:</MovieScore>
                 <Rating
                   name="half-rating-read"
                   value={voteAverage}
-                  precision={0.1}
+                  precision={0.5}
                   size="small"
                   readOnly
                 />
@@ -75,12 +80,12 @@ export default function MoviesDetails() {
             </Box>
           </Box>
 
-          <List sx={{ pt: 4, pb: 4, display: 'flex', gap: 2 }}>
+          <List>
             <li>
-              <StyledLink to="cast">Cast</StyledLink>
+              <StyledNavLink to="cast">Cast</StyledNavLink>
             </li>
             <li>
-              <StyledLink to="reviews">Reviews</StyledLink>
+              <StyledNavLink to="reviews">Reviews</StyledNavLink>
             </li>
           </List>
           <Outlet />
