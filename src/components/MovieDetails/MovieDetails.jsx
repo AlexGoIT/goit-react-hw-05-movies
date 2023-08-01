@@ -18,7 +18,7 @@ import { useFetchMovie } from 'hooks/useFetchMovie';
 
 export default function MoviesDetails() {
   const location = useLocation();
-  const backLinkLocation = useRef(location.state?.from || '/');
+  const backLinkLocation = useRef(location.state?.from ?? '/movies');
 
   const { movieId } = useParams();
   const [movie, open, error] = useFetchMovie(`/movie/${movieId}`);
