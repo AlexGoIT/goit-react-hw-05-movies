@@ -7,9 +7,7 @@ export default function SearchForm({ onSubmit }) {
     <>
       <Form onSubmit={onSubmit}>
         <SearchInput name="query" />
-        <SearchButton type="submit" variant="contained">
-          Search
-        </SearchButton>
+        <SearchButton type="submit">Search</SearchButton>
       </Form>
       <Loader open={false} />
     </>

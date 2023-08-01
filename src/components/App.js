@@ -18,8 +18,8 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="movies" element={<Movies />} />
         <Route path="movies/:movieId" element={<MovieDetails />}>
-          <Route path="/movies/:movieId/cast" element={<CastList />} />
-          <Route path="/movies/:movieId/reviews" element={<ReviewList />} />
+          <Route path="cast" element={<CastList />} />
+          <Route path="reviews" element={<ReviewList />} />
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
