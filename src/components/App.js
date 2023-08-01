@@ -2,9 +2,6 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 
 import Layout from './Layout';
-// import Home from 'pages/Home';
-// import Movies from 'pages/Movies';
-// import MovieDetails from './MovieDetails';
 import CastList from './CastList';
 import ReviewList from './ReviewList';
 
