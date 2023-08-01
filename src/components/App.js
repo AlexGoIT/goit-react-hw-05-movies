@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy } from 'react';
 
 import Layout from './Layout';
 // import Home from 'pages/Home';
@@ -16,18 +16,16 @@ document.title = 'HW-5 Movies';
 
 export default function App() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="movies" element={<Movies />} />
-          <Route path="movies/:movieId" element={<MovieDetails />}>
-            <Route path="/movies/:movieId/cast" element={<CastList />} />
-            <Route path="/movies/:movieId/reviews" element={<ReviewList />} />
-          </Route>
-          <Route path="*" element={<Navigate to="/" />} />
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
+        <Route path="movies" element={<Movies />} />
+        <Route path="movies/:movieId" element={<MovieDetails />}>
+          <Route path="/movies/:movieId/cast" element={<CastList />} />
+          <Route path="/movies/:movieId/reviews" element={<ReviewList />} />
         </Route>
-      </Routes>
-    </Suspense>
+        <Route path="*" element={<Navigate to="/" />} />
+      </Route>
+    </Routes>
   );
 }
