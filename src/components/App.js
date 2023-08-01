@@ -9,8 +9,6 @@ const Home = lazy(() => import('../pages/Home'));
 const Movies = lazy(() => import('../pages/Movies'));
 const MovieDetails = lazy(() => import('../components/MovieDetails'));
 
-document.title = 'HW-5 Movies';
-
 export default function App() {
   return (
     <Routes>
