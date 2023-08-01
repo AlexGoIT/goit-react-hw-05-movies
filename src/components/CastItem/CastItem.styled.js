@@ -11,16 +11,15 @@ export const Item = styled.li`
 
 export const Thumb = styled.div`
   width: 100%;
-  height: auto;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 1px 2px 5px 0px rgba(34, 60, 80, 0.2);
 `;
 
 export const ProfileImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   object-position: center;
 `;

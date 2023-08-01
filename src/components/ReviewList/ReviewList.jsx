@@ -3,13 +3,14 @@ import { useFetchMovie } from 'hooks/useFetchMovie';
 import ReviewItem from 'components/ReviewItem';
 import Loader from 'components/Loader';
 import { List } from './ReviewList.styled';
+import { Notify } from 'notiflix';
 
 export default function Reviews() {
   const movieId = useParams().movieId;
   const [reviews, open, error] = useFetchMovie(`/movie/${movieId}/reviews`);
 
   if (error) {
-    console.log(error);
+    Notify(error.message);
     return;
   }
 
@@ -24,7 +25,7 @@ export default function Reviews() {
           ))}
         </List>
       ) : (
-        <div>Reviews not found</div>
+        <div>There are no reviews...</div>
       )}
       <Loader open={open} />
     </>

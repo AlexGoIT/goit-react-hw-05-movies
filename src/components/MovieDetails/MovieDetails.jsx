@@ -71,11 +71,13 @@ export default function MoviesDetails() {
               </MovieScoreWrapper>
               <MovieSubTitle>Review</MovieSubTitle>
               <MovieReview>
-                {movie?.overview ? movie?.overview : 'No overview'}
+                {movie?.overview ? movie?.overview : 'No information'}
               </MovieReview>
               <MovieSubTitle>Genre</MovieSubTitle>
               <MovieGenre>
-                {movie?.genres.map(({ name }) => name).join(', ')}
+                {movie?.genres.length > 0
+                  ? movie?.genres.map(({ name }) => name).join(', ')
+                  : 'No information'}
               </MovieGenre>
             </Box>
           </Box>

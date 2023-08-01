@@ -6,6 +6,7 @@ import {
   ActorName,
   Character,
 } from './CastItem.styled';
+import noAvatar from 'images/no-avatar.png';
 
 export default function CastItem({ item }) {
   const { character, name, profile_path } = item;
@@ -15,15 +16,17 @@ export default function CastItem({ item }) {
 
   return (
     <>
-      {imgSrc && (
-        <Item>
-          <Thumb>
+      <Item>
+        <Thumb>
+          {imgSrc ? (
             <ProfileImage src={imgSrc} alt={name} loading="lazy" />
-          </Thumb>
-          <ActorName>{name}</ActorName>
-          <Character>{character}</Character>
-        </Item>
-      )}
+          ) : (
+            <ProfileImage src={noAvatar} alt={name} />
+          )}
+        </Thumb>
+        <ActorName>{name}</ActorName>
+        <Character>{character}</Character>
+      </Item>
     </>
   );
 }

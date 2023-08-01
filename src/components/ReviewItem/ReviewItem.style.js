@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Item = styled.li`
-  padding: 10px;
+  padding: 8px;
   display: flex;
   flex-direction: column;
   border-radius: 4px;
@@ -18,19 +18,18 @@ export const AuthorNameBox = styled.div``;
 export const Thumb = styled.div`
   width: 45px;
   height: 45px;
-  margin-right: 20px;
+  margin-right: 8px;
   border-radius: 50%;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: bisque;
   box-shadow: 1px 2px 5px 0px rgba(34, 60, 80, 0.2);
 `;
 
 export const AvatarImage = styled.img`
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   object-position: center;
 `;

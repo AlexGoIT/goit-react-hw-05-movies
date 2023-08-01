@@ -25,13 +25,13 @@ export default function Movies() {
       try {
         const res = await getMovie(`/search/movie?query=${query}`);
 
-        if (res.results.length === 0) {
+        if (res?.results.length === 0) {
           Notify.failure('Sorry, no movies found');
-
           setMovies(null);
+          return;
         }
 
-        setMovies(res.results);
+        setMovies(res?.results);
       } catch (err) {
         Notify.failure(`Error: ${err.message}`);
       } finally {

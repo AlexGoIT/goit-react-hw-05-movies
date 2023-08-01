@@ -7,6 +7,7 @@ import {
   AvatarImage,
   ReviewContent,
 } from './ReviewItem.style';
+import noAvatar from 'images/no-avatar.png';
 
 const ReviewItem = ({ review }) => {
   const {
@@ -24,11 +25,15 @@ const ReviewItem = ({ review }) => {
     <Item>
       <AuthorWrapper>
         <Thumb>
-          <AvatarImage src={avatarSrc} alt={author} />
+          {avatarSrc ? (
+            <AvatarImage src={avatarSrc} alt={author} />
+          ) : (
+            <AvatarImage src={noAvatar} alt={author} />
+          )}
         </Thumb>
         <Box>
           <p>Name: {author}</p>
-          <p>Username: ({username})</p>
+          <p>Nik: {username}</p>
         </Box>
       </AuthorWrapper>
       <ReviewContent>{content}</ReviewContent>

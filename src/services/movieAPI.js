@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Notify } from 'notiflix';
 
 const instance = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
@@ -19,5 +20,6 @@ export async function getMovie(path, page = 1) {
     return res.data;
   } catch (err) {
     console.log(err);
+    Notify.failure(`Error: ${err.message}`);
   }
 }
