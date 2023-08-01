@@ -8,7 +8,7 @@ import MovieList from 'components/MovieList';
 export default function Movies() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
-  const query = searchParams.get('query');
+  const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
     if (!query) return;
