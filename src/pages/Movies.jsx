@@ -1,22 +1,42 @@
-import { Container } from '@mui/system';
-import SearchForm from 'components/SearchForm';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
+import { Container } from '@mui/system';
 import { getMovie } from 'services/movieAPI';
+import SearchForm from 'components/SearchForm';
 import MovieList from 'components/MovieList';
+import Loader from 'components/Loader';
 
 export default function Movies() {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    if (!query) return;
+    if (!query) {
+      setMovies(null);
+      return;
+    }
 
+    setLoading(true);
     const fetchMovies = async () => {
-      const movies = await getMovie(`/search/movie?query=${query}`);
+      try {
+        const movies = await getMovie(`/search/movie?query=${query}`);
 
-      setMovies(movies.results);
+        if (movies.results.length === 0) {
+          Notify.failure('Sorry, no movies found');
+
+          setMovies(null);
+        }
+
+        setMovies(movies.results);
+      } catch (err) {
+        Notify.failure(`Error: ${err.message}`);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchMovies();
@@ -29,8 +49,9 @@ export default function Movies() {
     const query = form.elements.query.value.trim();
 
     if (!query) {
-      setSearchParams({});
-      setMovies([]);
+      Notify.warning('Enter the name of the movie, for a correct search!');
+      // setSearchParams({});
+      // setMovies([]);
       return;
     }
 
@@ -38,7 +59,7 @@ export default function Movies() {
     form.reset();
   };
 
-  const isNotEmptyList = movies.length > 0;
+  const isNotEmptyList = movies?.length > 0;
 
   return (
     <>
@@ -46,6 +67,7 @@ export default function Movies() {
         <SearchForm onSubmit={handleSubmit} />
         {isNotEmptyList && <MovieList movies={movies} />}
       </Container>
+      <Loader open={loading} />
     </>
   );
 }

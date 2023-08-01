@@ -1,10 +1,14 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
+// import { lazy } from 'react';
+
 import Home from 'pages/Home';
 import Movies from 'pages/Movies';
-import { Routes, Route, Navigate } from 'react-router-dom';
 import CastList from './CastList';
 import Layout from './Layout';
 import MovieDetails from './MovieDetails';
 import ReviewList from './ReviewList';
+
+// import Home = lazy(() => import("../pages/Home"));
 
 document.title = 'HW-5 Movies';
 

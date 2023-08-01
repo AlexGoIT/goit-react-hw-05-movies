@@ -41,7 +41,7 @@ export default ReviewItem;
 ReviewItem.propTypes = {
   review: PropTypes.shape({
     author_details: PropTypes.shape({
-      avatar_path: PropTypes.string.isRequired,
+      avatar_path: PropTypes.string,
       username: PropTypes.string.isRequired,
     }).isRequired,
   }),

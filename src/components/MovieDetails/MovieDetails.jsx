@@ -1,6 +1,9 @@
 import { Outlet, useParams, useLocation, Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { Box, Container } from '@mui/material';
+import Rating from '@mui/material/Rating';
+import { useFetchMovie } from 'hooks/useFetchMovie';
+
 import Loader from 'components/Loader';
 import {
   List,
@@ -14,7 +17,6 @@ import {
   MovieGenre,
   StyledLink,
 } from './MovieDetails.styled';
-import { useFetchMovie } from 'hooks/useFetchMovie';
 
 export default function MoviesDetails() {
   const location = useLocation();
@@ -50,9 +52,24 @@ export default function MoviesDetails() {
             </Thumb>
             <Box>
               <MovieTitle>{movie?.title ?? movie?.name}</MovieTitle>
-              <MovieScore>
-                User score: {voteAverage ? `${voteAverage}%` : 'No score'}
-              </MovieScore>
+              <Box
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  pt: 2,
+                  pb: 2,
+                  gap: 1,
+                }}
+              >
+                <MovieScore>User score:{` ${voteAverage} `}</MovieScore>
+                <Rating
+                  name="half-rating-read"
+                  value={voteAverage}
+                  precision={0.1}
+                  size="small"
+                  readOnly
+                />
+              </Box>
               <MovieSubTitle>Review</MovieSubTitle>
               <MovieReview>
                 {movie?.overview ? movie?.overview : 'No overview'}

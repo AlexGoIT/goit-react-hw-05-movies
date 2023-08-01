@@ -44,7 +44,7 @@ export const MovieTitle = styled.h2`
 `;
 
 export const MovieScore = styled.p`
-  margin-block: 16px;
+  /* margin-block: 16px; */
   font-size: 18px;
 `;
 
