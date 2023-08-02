@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { Box, Container } from '@mui/material';
 import Rating from '@mui/material/Rating';
 import { useFetchMovie } from 'hooks/useFetchMovie';
+import { Notify } from 'notiflix';
 
 import Loader from 'components/Loader';
 import {
@@ -34,7 +35,7 @@ export default function MoviesDetails() {
   const voteAverage = Math.floor(movie?.vote_average) / 2;
 
   if (error) {
-    return <div>{error}</div>;
+    Notify.failure(error.message);
   }
 
   return (
