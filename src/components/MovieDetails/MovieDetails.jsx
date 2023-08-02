@@ -27,7 +27,7 @@ export default function MoviesDetails() {
   const backLinkLocation = useRef(location.state?.from ?? '/movies');
 
   const { movieId } = useParams();
-  const [movie, open, error] = useFetchMovie(`/movie/${movieId}`);
+  const [movie, loading, error] = useFetchMovie(`/movie/${movieId}`);
 
   const imgSrc = movie?.poster_path
     ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
@@ -94,7 +94,7 @@ export default function MoviesDetails() {
           <Outlet />
         </Container>
       )}
-      <Loader open={open} />
+      <Loader open={loading} />
     </>
   );
 }

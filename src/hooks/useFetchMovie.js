@@ -3,12 +3,12 @@ import { getMovie } from 'services/movieAPI';
 
 export const useFetchMovie = url => {
   const [data, setData] = useState(null);
-  const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
-      setOpen(true);
+      setLoading(true);
       try {
         const data = await getMovie(url);
 
@@ -16,12 +16,12 @@ export const useFetchMovie = url => {
       } catch (err) {
         setError(err);
       } finally {
-        setOpen(false);
+        setLoading(false);
       }
     };
 
     fetchMovie();
   }, [url]);
 
-  return [data, open, error];
+  return [data, loading, error];
 };
