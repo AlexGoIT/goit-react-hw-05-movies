@@ -79,7 +79,7 @@ export default function Movies() {
           <Pagination
             count={totalPages}
             onChange={handlePaginationChange}
-            page={page}
+            page={Number(page)}
           />
         )}
       </Container>
