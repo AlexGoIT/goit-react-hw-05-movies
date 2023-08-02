@@ -76,7 +76,11 @@ export default function Movies() {
         <SearchForm onSubmit={handleSubmit} />
         {isNotEmptyList && <MovieList movies={movies} />}
         {isPagination && (
-          <Pagination count={totalPages} onChange={handlePaginationChange} />
+          <Pagination
+            count={totalPages}
+            onChange={handlePaginationChange}
+            page={page}
+          />
         )}
       </Container>
       <Loader open={loading} />

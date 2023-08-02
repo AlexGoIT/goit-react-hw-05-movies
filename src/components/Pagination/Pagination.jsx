@@ -1,6 +1,6 @@
 import { PaginationWrapper, StyledPagination } from './Pagination.styled';
 
-export default function Pagination({ count, onChange }) {
+export default function Pagination({ count, onChange, page }) {
   return (
     <PaginationWrapper>
       <StyledPagination
@@ -8,6 +8,7 @@ export default function Pagination({ count, onChange }) {
         variant="outlined"
         shape="rounded"
         onChange={onChange}
+        page={Number(page)}
       />
     </PaginationWrapper>
   );
