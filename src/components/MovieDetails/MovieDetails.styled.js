@@ -70,14 +70,14 @@ export const MovieGenre = styled.p``;
 
 export const StyledLink = styled(Link)`
   max-width: 100px;
-  padding: 8px;
+  padding: 4px;
   margin-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
   border-radius: 4px;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 500;
   text-align: center;
   text-transform: uppercase;
